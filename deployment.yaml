@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: your-dockerhub-username/demo-app:latest
+          image: nginx:1.25.3
           ports:
-            - containerPort: 8080
+            - containerPort: 80
