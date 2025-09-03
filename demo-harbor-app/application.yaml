@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-harbor-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sean1996-it/gitops.git  # 你的 Git 儲存庫 URL
+    targetRevision: main  # 監控的分支
+    path: demo-harbor-app  # 清单檔案的路徑（或指定子目錄，如 kustomize/）
+  destination:
+    server: https://kubernetes.default.svc  # 目標叢集（本地為此）
+    namespace: default  # 部署的命名空間
+  syncPolicy:
+    automated:
+      prune: true  # 自動刪除不再需要的資源
+      selfHeal: true  # 自動修復偏差
+    syncOptions:
+    - CreateNamespace=true  # 若命名空間不存在，自動創建

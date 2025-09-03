@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: harbor.23sportz4n39sdbkv25vm23.com/sean-test/nginx:1.23.0
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: harbor-secret
