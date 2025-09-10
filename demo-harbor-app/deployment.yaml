@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: harbor.23sportz4n39sdbkv25vm23.com/sean-test/nginx:1.21.3
+        image: harbor.23sportz4n39sdbkv25vm23.com/sean-test/nginx:1.22.0
         ports:
         - containerPort: 80
       imagePullSecrets:
