@@ -13,8 +13,5 @@ spec:
     server: https://kubernetes.default.svc  # 目標叢集（本地為此）
     namespace: default  # 部署的命名空間
   syncPolicy:
-    automated:
-      prune: true  # 自動刪除不再需要的資源
-      selfHeal: true  # 自動修復偏差
     syncOptions:
     - CreateNamespace=true  # 若命名空間不存在，自動創建
